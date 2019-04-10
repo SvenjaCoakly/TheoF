@@ -1,0 +1,402 @@
+\documentclass[a4paper,11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amstext}
+\usepackage{caption, booktabs}
+\usepackage{amssymb}
+\usepackage{a4wide}
+\usepackage{verbatim}
+\usepackage{url}
+\usepackage{setspace}
+\usepackage[decimalsymbol=comma]{siunitx}
+\sisetup{separate-uncertainty}
+\usepackage{subfigure}
+\usepackage{subfig}
+\usepackage{cleveref}
+\usepackage{caption}
+\usepackage{placeins}
+\usepackage{epigraph}
+\usepackage{floatrow}
+%\usepackage{bbold}
+
+\floatsetup[table]{capposition=top}
+
+\begin{document}
+\begin{titlepage}
+
+
+\title{Grundlagen der statistischen Physik// Zusammenfassung}
+
+\date{Vorlesung WS 18/19, Mirlin}
+
+\vfill
+\maketitle
+\end{titlepage}
+\newpage
+\tableofcontents
+\newpage
+
+\section{Thermodynamik, Zusammenfassung}
+\textbf{Stirlingssche Näherungsformel}\\
+$N! \approx \sqrt{2 \pi N} \left( \frac{N}{e} \right)^2$
+\\
+$\log(n!)= n \cdot \log(n) - n$\\
+\\
+\textbf{Entropie:}\\
+\\
+Entropie ist eine Zustandsgröße $\rightarrow$ Zusammenhang für reversible Prozesse kann verwendet werden:\\
+\begin{equation}
+ dS = \frac{\delta Q }{T} = \frac{dU}{T} ; \,\,\,\, \delta Q = C dT
+\end{equation}
+Körper ändert Temperatur: $ dS = \int C \frac{dT}{T}$ \\
+
+\textbf{Innere Energie U/ Ideales Gas}\\
+\\
+Bei idealem Gas gilt: $ U = \frac{f}{2} N k_B T$\\
+Wobei f die Freiheitsgrade sind. Einatomiges Gas hat nur Translationsfreiheitsgrade, daher ist f=3. 
+Zustandsgleichung: $ pV = Nk_B T$\\
+\\
+\textbf{Freie Enthalpie G:}\\
+\\
+$G(T,P) = U +PV-TS = H-TS = \mu N$\\
+$dG = -SdT + VdP + \mu dN$\\
+Es gilt: $ S(T,P)= - \left( \frac{\partial G }{ \partial T} \right)_P\, ; \,\,\,\,\, V(T,P)= - \left( \frac{\partial G }{ \partial P} \right)_T$\\
+\\
+\textbf{Erster Hauptsatz:}\\
+\\
+$$ dU = T dS -pdV$$
+
+\textbf{Die Maxwell-Relationen}\\
+\\
+Maxwell-Relation mithilfe der Jacobi-Determinante: $\Bigr| \frac{\partial (a,c)}{\partial (b,c)} \Bigl| = \Bigr| \frac{\partial (d,b)}{\partial (c,b)} \Bigl| $\\
+$C_M = T \left( \frac{\partial S}{\partial T} \right)_M\, ;\,\,\,\, C_B = T \left( \frac{\partial S}{\partial t} \right)_B $ \\
+Arbeit bei Änderung des Magnetfelds: $ \delta W = M \, d B$\\
+\\
+\textbf{Thermodynamische Ausdehnung}\\
+\\
+geleistete Arbeit bei infinitesimaler Längenänderung auf Grund von f: $\delta W = -f dL$\\
+Thermoelasischer Koeffizient: $ \psi_s = \left( \frac{\partial T}{\partial L} \right)_S$
+
+\section{Wahrscheinlichkeitstheorie}
+
+\subsection{Binominalverteilung}
+Sie beschreibt die Anzahl der Erfolge in einer Serie von gleichartigen und unabhängigen Versuchen, die jeweils genau zwei mögliche Ergebnisse haben („Erfolg“ oder „Misserfolg“). Solche Versuchsserien werden auch Bernoulli-Prozesse genannt.- Wikipedia\\
+\\
+\begin{itemize}
+ \item Wir betrachten N verschiedene Objekte: \\
+ Zahl der Permutationen(dh. der Anodnungen): $N!$
+ \item Wenn wir R Objekte aus N herausgreifen, ist die Zahl der Variationen (mit Berücksichtigung der Anordnung): $ \frac{N!}{(N-R)!} = N(N-1)\cdot... \cdot (N-R+1)) $
+ \item Zahl der Kombinationen (ohne Berücksichtigung der Anordnung): $ \frac{N!}{(N-R)! R!} = {N\choose k}$
+\end{itemize}
+
+Wir betrachten nun ein System, wo man eine Serie von gleichartigen und unabhängigen Versuchen durchführen kann. Jeder Versuch hat genau 2 mögliche Ergebnisse:\\
+A $ \longrightarrow$ Wahrscheinlichkeit $p$\\
+B $ \longrightarrow$ Wahrscheinlichkeit $q=1-p$\\
+\\
+Die Wahrscheinlichkeit dafür, dass bei N Versuchen n mal das Ergebnis A und (N-n) mal das Ergebnis B liefern ist: \\
+\begin{equation}
+ \rho_N(n) = \frac{N!}{n!(N-n)!} p^n q^{N-n}
+\end{equation}
+das ist die Binominalverteilung.
+
+
+\section{Grundlagen der statistischen Physik}
+\textbf{Die Egodenhypothese}\\
+\textit{Die Ergodenhypothese besagt, dass sich thermodynamische Systeme in der Regel zufällig verhalten, sadass alle energetisch möglichen Phasenraum Regionen erreicht werden.}\\
+Nach genügend langer Zeit kommt das System jedem Punkt im Phasenraum, der mit den Erhaltungssätzen verträglich ist (hier nur E) beliebig nahe. 
+\begin{equation}
+ \bar{O}_E = \bar{O}_t
+\end{equation}
+wobei $\bar{O}_E$ den mikroskopischen Mittelwert beschreibt, 
+und $\bar{O}_t$ den Zeitmittelwert mit $\bar{O}_t = \lim_{t \to \infty} \frac{1}{t} \, \int_0^t \, dt' \, O(\vec{x}(t))$.\\
+Beispiel:\\
+Potential $V(x)= V_0 x^2$ mit $x(t) = A \cos(\omega t + \phi)$. Es wir geprüft, ob $ \langle V(x) \rangle_E = \langle V(x) \rangle_t $.
+\begin{equation}
+  \begin{split}
+    \langle x^2 \rangle_E = \frac{A^2}{2 \pi} \int_0^{2 \pi} \cos^2(\omega t + \phi) d \phi\\
+    \langle x^2 \rangle_E = \frac{A^2}{T} \int_0^{T} \cos^2(\omega t + \phi) d t
+  \end{split}
+\end{equation}
+Erdogenhyphothese kann auch durch überlegung bestätigt werden. Das Zeitmittel muss dem Ensemble Mittel entsprechen.
+
+\subsection{Dichtematrix $\hat{\rho}$ }
+\begin{equation}
+ \hat{\rho} = \sum_{\alpha} \, W_{\alpha} \, | \Psi_{\alpha} \rangle \langle \Psi_{\alpha} |
+\end{equation}
+Im Allegemeinen ist die Dichtematrix in einer vorgegebenen Basis $|n \rangle$ nicht diagonal.\\
+\\
+Eigenschaften der Dichtematrix: \\
+\begin{itemize}
+ \item $\hat{\rho}$ ist herimtisch, $ \hat{\rho}_{n,n'} = \hat{\rho}_{n,n'}^* \,\,\, \rightarrow \,\,\, \hat{\rho} = \hat{\rho}^+$
+ \item $tr(\hat{\rho}) = 1$, normiert
+ \item $\hat{\rho}$ ist positiv definit für alle $\Psi$: $\langle \Psi | \hat{\rho} | \Psi \rangle \geq 0$
+\end{itemize}
+Aus $\rho = \rho^+$ folgt, dass eine orthogonale Basoís existiert, in der $\hat{\rho}$ diagonal ist: $\rho = \sum_{\mu}\, W_{\mu} \, | \mu \rangle \, \langle \mu |$\\
+\\
+\textit{Reiner Zustand:} \\
+Als reiner Zustand wird ein Zustand bezeichnet, wenn $\hat{\rho} = \hat{\rho^2}$. Der maximale Wert der Spur ist $Tr(\rho) = 1$. Kleinster Wert: alle Baiszustände sind gleich Wahrscheinlich, 2 Zustände $\rightarrow$ Wahrscheinlichkeit $1/2$
+Zudem gilt: $ | \Psi \rangle \,\,\, \rightarrow \,\,\, \hat{\rho} = | \Psi \rangle  \, \langle  \Psi |  = P_{| \Psi \rangle}$, $P_{| \Psi \rangle}$ ist der Projektor.\\
+Die Diagonalisierung ergibt: 
+$\left( \begin{array}{rrr}
+0 & \cdots & 0 \\
+\vdots & 1 & \vdots  \\
+0 & \cdots & 0  \\
+\end{array}\right) $
+\\
+\\
+\textit{Gemischter Zustand:} \\
+Bei einem gemischten Zustand gilt $\hat{\rho} \neq \hat{\rho^2}$ \\
+\\
+Die Diagonalisierung ist: 
+$\left( \begin{array}{rrr}
+W_1 & 0 & \cdots \\
+0 & W_2 & 0  \\
+\vdots & 0 & \ddots  \\
+\end{array}\right) $\\
+
+$W_i \geq 0, \,\,\, W_i \neq 1$ \\
+Die Eigenwerte der Dichtematrix geben die Wahrscheinlichkeiten $W_i$, die dazugrhörigen Eigenvektoren die entsprechenden Zustände.\\
+\\
+\textbf{Darstellungen der Dichtematrix}\\
+Jede Dichtematrix im Spinraum lässt sich inder allgem. Form $\rho = \frac{1}{2} ( \mathbb{1} + b \,\cdot \, \sigma)$
+
+
+\textbf{ Liouville-Gleichung/ von Neumann-Gleichung: }\\
+\begin{equation}
+ i \hbar \, \frac{\partial}{\partial t} \, \hat{\rho} = \left[ \hat{H}, \hat{\rho} \right]
+\end{equation}
+beschreibt die Zeitentwicklung.
+
+\subsection{Mikrokanonisches Ensemble}
+Abgeschlossenes System im Gleichgewicht, keine Erhaltungsgröße außer der Energie E.\\
+\\
+Die mikrokanonisches Zustandssumme $\Omega(E) $ bestimmt das Gleichgewicht, wenn die einzige Eraltungsgröße die Energie ist:\\
+$ \sum (E) = \frac{d \Omega (E)}{d E}$\\
+\\
+Wobei $\Omega(E) = \int dx \, \Theta (E-H(x)) = \sum_n \Theta (E-E_n) $. E=U ist die innere Energie. 
+\textbf{Entropie des idealen Gases:}\\
+$S= k_B \, \ln(\Omega) = - k_B \, \sum_{\mu} W_{\mu} \, \ln(W_{\mu})$
+
+\subsection{Kanonisches Ensemble}
+Beschreibt abgeschlossenes System bei dem nur die Temperatur fest ist(Erhaltungsgröße).
+Kanonisches und mikrokanonisches Ensemble sind äquivalent im thermodynamischen Limes $N \,\,  \rightarrow \,\, \infty$
+Maximale Entropie unter Bedingung $\langle E \rangle = U$:
+$\hat{\rho}= \sum_n W_n | \Psi_n \rangle \langle \Psi | \, ; \,\,\,\, \hat{H} | \Psi_n \rangle = E_n | \Psi_n \rangle \, ; \,\,\,\, S = -k_B \sum_n \ln(W_n)$\\
+$U = \langle E \rangle = Tr(\hat{\rho}\hat{H}) = \sum_n W_n E_n = - \frac{\partial}{\partial \beta} \ln (Z)$
+
+Die kanonische Zustandssumme ist $ Z = \sum_{n=0}^{\infty} \, e^{-\beta E_n} = $. \\
+\textit{Beispiel:} Sind zwei Zustände vorhanden, $E_0$, $E_1$ und $E_0$  ist zweifach entartet, so ist \\ $Z = 2 e^{- \beta E_0 } + e^{- \beta E_1 }$\\
+\\
+Die Wahrscheinlichkeit für einen Zustand ist $W_n = \frac{1}{Z} \, e^{-\beta E_n}$.\\
+Damit kann  die innere Energie geschrieben werden als $U = - \frac{\partial}{\partial \beta} \ln (Z)$
+und die freie Energie mit 
+\begin{equation}
+ F(T,V,N) = U-TS = - k_B T \ln (Z)
+\end{equation}
+Es ist $ \beta = \frac{1}{k_B \, T}$\\
+\\
+Wichtige Formeln:\\
+Entropie $S = k_B \ln(\Omega) = - \left( \frac{\partial F}{\partial T} \right)_{V,N}$ \\
+Innere Energie $U = - \frac{\partial }{\partial \beta} \ln(Z) = F + T\,S$\\
+Spezifische Wärme $C_v = \left( \frac{\partial U }{\partial T} \right)_V$\\
+\\
+\textbf{Energie-Schwankungen}\\
+Fluktuationen der Energie: $\langle (\Delta E)^2 \rangle = \langle E^2 \rangle - \langle E \rangle^2 = k_B T^2 C_v = - \frac{\partial U}{\partial \beta} = - k_B T^2 \frac{\partial U}{\partial T}$\\
+Die relativen Fluktuationen der Energie gehen für $ N \rightarrow \infty$ gegen 0.\\
+Kanonisches Zustandsintegral: $Z = \int \frac{d^f q \, d^f p }{(2 \pi)} e^{- \beta H}$\\
+Barometrische Höhenformel: $P(z)=P(0) \, e^{- \frac{mgz}{k_B T}}$\\
+
+\subsection{Großkanonisches Ensemble}
+Beschreibt System in dem die Temperatur $T$ und das chemische Potential $ \mu$  vorgegebenen sind.\\
+\textit{Das großkanonische Ensemble beschreibt Systeme, die sowohl die Wärme als auch Teilchen mit dem Bad austauschen.}\\
+\begin{equation}
+ W_n = \frac{1}{Z_G} e^{- \beta (E_n - \mu N_n)}
+\end{equation}
+Die großkanonische Zustandssumme ist $ Z_G (\beta, V, \mu) = \sum_n e^{E_n - \mu N_n}$\\
+Zudem gilt: 
+\begin{equation}
+             \sum_n W_n E_n = U \\
+             \sum_n W_n N_n = N
+ \end{equation}
+Das großkanonische Potential ist: $\Omega (T,V, \mu) = -k_B T \ln(Z_G)$
+
+\section{Ideale Systeme}
+Thermische de Broglie-Wellenlänge: $\lambda_T = \sqrt{\frac{2 \pi \hbar^2}{m k_B T}}$
+Damit kann die Zustandssumme geschrieben werden als $Z = \frac{1}{N!} \left( \frac{V}{\lambda_T^3} \right)^N$\\
+Das chemische Potential ist $\mu = \left( \frac{\partial F }{\partial N} \right)_{T,V}$, \\
+mit der freien Energie: $F= - k_B T N \ln(\frac{e \,V}{\lambda_T^3 \, N})$
+\subsection{Maxwell-Bolzmann Gas: Großkanonisches Ensemble}
+Zustandssumme: $Z_G = \sum_N e^{\beta \mu N}$ mit $Z_N = \frac{1}{N!} Z_1^N$\\
+Großkanonisches Potential: $\Omega (T,V, \mu) = -k_B T \ln(Z_G) = - k_B T e^{\beta \mu} Z_1 $\\
+Entropie: $S = \left( \frac{\partial \Omega}{\partial T} \right)_{V, \mu}$\\
+Druck: $P = \left( \frac{\partial \Omega}{\partial V} \right)_{T, \mu}$\\
+\textbf{Verallgemeinerte Maxwell-Bolzmann-Statistik:}\\
+\begin{itemize}
+ \item Zustandssumme für ein Teilchen: $Z_1 = \sum_{\lambda} e^{- \beta E_{\lambda}}$
+ \item Zustanssumme für N unterscheidbare Teilchen: $Z = Z_1^N$
+ \item Zustandssumme für N ununterscheidbare Teilchen(Maxwell-Bolzmann Gas): \\
+ kanonisch $Z= \frac{1}{N!} Z_1^N$\\
+ großkanonisch $Z_G = \sum_N \frac{e^{\beta \mu N}}{N!} Z_1^N = \exp(e^{\beta \mu} Z_1)$\\
+ \end{itemize}
+
+Maxwell-Bolzmann-Verteilung: $\langle n_{\lambda} \rangle = e^{-\beta (E_{\lambda}-\mu)}$\\
+\\
+Die Wahrscheinlichkeit, dass der Zustand $\lambda$ mit $n_{\lambda}$ Teilchen besetzt ist: $W_{\lambda}(n_{\lambda}) = \frac{1}{Z_{\lambda}} \, e^{- \beta (E_{\lambda}-\mu)}$\\
+
+\subsection{Identische Teilchen in der Quantenphysik}
+Ununterscheidbare Teilchen in der Quantenphysik: Bosonen, Fermionen.\\
+\textit{Im Gegensatz zu Fermionen können beliebig viele Bosonen im gleichen Einteilchenzustand sein.}\\
+\\
+Zustandssumme: $Z_G = \prod_{\lambda} \, Z_{\lambda}$
+\begin{equation}
+  Z_{\lambda} = \left\{ \begin{array}{c} \frac{1}{1-e^{\beta (E_{\lambda}-\mu)}} \,\,\,\,\,\,\, \mathrm{Bose-Einstein} \\ \\  1+e^{\beta (E_{\lambda}-\mu)}\,\,\,\,\,\,\, \mathrm{Fermi-Dirac} \\ \\
+  \exp \left(e^{\beta (E_{\lambda}-\mu)} \right) \,\,\,\,\, \mathrm{Maxwell-Boltzmann}
+  \end{array} \right.
+\end{equation}
+
+Mittlere Besetzungszahl: 
+\begin{equation}
+  \langle n_{\lambda} \rangle = \left\{ \begin{array}{c} n_B (E_{\lambda}) = \frac{1}{e^{\beta (E_{\lambda}-\mu)}-1} \,\,\,\,\,\,\, \mathrm{Bose-Einstein} \\ \\  n_F (E_{\lambda}) = \frac{1}{e^{\beta (E_{\lambda}-\mu)}+1}\,\,\,\,\,\,\, \mathrm{Fermi-Dirac} \\ \\
+  n_{MB} (E_{\lambda}) = e^{\beta (E_{\lambda}-\mu)} \,\,\,\,\, \mathrm{Maxwell-Boltzmann}
+  \end{array} \right.
+\end{equation}
+$\langle n_{\lambda} \rangle = \sum_{n_{\lambda}= 0}^{\infty}$\\
+Das großkanonische Potential $\Omega(T,V,\mu) = - k_B T \ln(Z_G)$\\
+
+\textbf{Das chemische Potential}\\
+Im Gleichgewicht gilt: $\mu_{frei}= \mu_{absorb.}$ und $T_{frei} = T_{absorb.}$.\\
+Teilchenzahl im Gleichgewicht: $\langle n \rangle = k_B T \frac{\partial }{\partial \mu} \ln(Z_G)$
+\\
+\textbf{Die Fugazität:}\\
+$z = e^{\beta \mu}$ mit $0 \leq z \leq 1$\\
+\\
+\textbf{Die Magnetisierung $M$}\\
+$M= -\frac{\partial F}{\partial B}$ da $dF =-S dT - MdB$\\
+\\
+\textbf{Magnetische Suszebptibilität$ \chi$}\\
+$\chi = \frac{\partial M}{\partial B}$\\
+$\chi < 0 \,\,\, \rightarrow$ Diamagnetisches Verhalten
+\subsection{Makroskopischer Zustand}
+Entropie Makroskopischer Zustand $S = k_B \sum_j \ln (\Gamma_j (N_j))$\\
+Hierbei ist $ \Gamma_j (N_j)  $ die Anzahl der Möglichkeiten $N_j$ Teilchen auf die $\nu_j$  Zustände in Gruppe $j$ zu verteilen. \\
+\\
+\textit{Fermionen:} Jeder Zustand kann nur durch ein Fermion besetzt werden. ($N_j$ Fermionen in $v_j$ Zustände platzieren.)\\
+\textit{Bosonen:} Jeder Zustand kann maximal $N_j$-fach besetzt werden.\\
+\\
+\textbf{Langrange-Multiplikatoren}\\
+\\
+Berechnen des Gleichgewichts. Das Gleichgewicht ist durch $S = k_B \ln(\Gamma(P_1, P_2, ...)) = maximal$ bestimmt.\\ 
+Seien Nebenbedingungen gegeben: $U = \sum_n \, W_n E_n$ und $\sum_n W_n = 1$\\
+Langrange-Multiplikation: $S_L = -k_B \, \sum_n \, W_n \ln(W_n) - \lambda (\sum_n W_n-1)- \alpha(\sum_n W_n-U)$\\
+Bestimmen des Maximas: $\frac{\partial S_L}{\partial W_n} = 0$\\
+Nach $W_n$ umgestellt liefert die Fermi-Verteilung. 
+
+\subsection{Ideales Bosegas}
+Mit dem Konzept des Bosegases ist exakte Berechnung des Phasenübergangs möglich, (Bose-Einstein-Kondensation).\\
+\textit{Die Tatsache, dass sich im idealen Bosegas eine diskrete Übergangstemperatur $T_c$ ergibt und dass für $T \leq T_c$ ein endlicher Bruchteil aller Teilchen in den tiefsten Zustand geht, wird als Bose-Einstein-Kondensation bezeichnet}\\
+\\
+Bosefunktion: 
+\begin{equation}
+ \langle n_{\lambda} \rangle = n_B (E_{\lambda}) = \frac{1}{e^{\beta(E_{\lambda}-\mu)}-1}
+\end{equation}
+Die Zustandsdichte wir berechnet mit $\nu (E) = \int \frac{d^3p}{(2 \pi \hbar)^3} \delta (E-E_p) $\\
+\\
+Die Fugazität ist : $z = e^{\beta \mu}$ wobei immer $0 \leq z \leq 1$\\
+\\
+Dichte $n$ mit $n = \frac{\langle N \rangle}{V} = \frac{\langle N_0 \rangle}{V} + \frac{1}{\lambda_T^3} g_{3/2}(z)$\\
+Wobei $\langle N_0 \rangle$ die Teilchenzahl im Grundzustand ist, $\langle N_0 \rangle = n_B(E=0)$\\
+Zudem gilt für normales Gas, $T > T_c$: $\lim_{v \rightarrow \infty} \frac{N_0}{V} = 0$
+\textbf{Nichtrelativistisches ideales Bose-Gas}\\
+Betrachten Teilchen ohne Spin, für Teilchen mit Spin hat man einen zusätzlichen Faktor 2s+1 in $\Omega$.\\
+\\
+Gasteilchen, Impuls $\vec{p}$, Energie $E_{\vec{p}} = \vec{p}^2\, /\, 2m$\\
+Thermische de Broglie-Wellenlänge: $\lambda_T = \sqrt{\frac{2 \pi \hbar^2}{m k_B T}}$\\
+\\
+Hohe Temperaturen: Korrekturen zum klassischen idealen Gas:\\
+Virialsatz: $PV = N k_B T (1-\frac{1}{2^{5/2}} \lambda_T^3 + ...)$\\
+\\
+\textbf{Bose-Einstein-Kondensation:}\\
+$n>n_c \,\,\Leftrightarrow T< T_c$\\
+\begin{equation}
+ \lim_{V \rightarrow \infty} Z = 1\, ;\,\,\,\, \lim_{V \rightarrow \infty} \mu = 0\, ; \,\,\,\,\, \lim_{V \rightarrow \infty} \frac{\langle N_0 \rangle }{V} = n_0 = n-n_c = n-\frac{g_{3/2}(1)}{\lambda_T^3}
+\end{equation}
+$\rightarrow$ Makroskopische Besetzung des Grundzustands.\\
+\\
+Damit Bose-Einstein-Kondensation möglich ist, darf die Teilchendichte/Zustandsdichte ohne Kondensat für $ \mu \rightarrow 0$ nicht divergieren. 
+Die Zustandsdichte berechnet sich wie folgt: 
+\begin{equation}
+ \langle N \rangle = - \left( \frac{\partial \Omega}{\partial \mu} \right)_{T, V} = n_B(0)\, + \, \int_0^{\infty} d \epsilon \, \nu (\epsilon) \, n_B (\epsilon)
+\end{equation}
+Hierbei ist $ n_B(\epsilon =0) = \frac{N_0}{V}$ die Teilchenzahl im Grundzustand. Für $V \rightarrow \infty $ geht $ n_B(\epsilon =0) \rightarrow 0$\\
+
+\textbf{Thermodynamische Eigenschaften ober-/unterhalb des Übergangs (für $V \rightarrow \infty$)}\\
+\\
+In der Nähe des Übergangs $T \rightarrow T_c$ ist $\mu \rightarrow 0$ und
+\begin{equation}
+  P = - \frac{\Omega (T,V, \mu)}{V} =  \left\{ \begin{array}{c} 
+  \frac{k_B T}{\lambda_T^3} g_{5/2}(z) \,\,\,\,\,\,\, (T \geq T_c) \\ \\ 
+  \frac{k_B T}{\lambda_T^3} g_{5/2}(1) \,\,\,\,\,\,\, (T \leq T_c)
+  \end{array} \right.
+\end{equation}
+
+\section{Strahlung}
+\textbf{Photonen}\\
+Dispersionsrelation: Die Frequnez ist $ \omega = c \, k$\\
+Quantisierung der Energie $E_k = \hbar \omega_k = c | \vec{p}| $ mit dem Impuls $\vec{p} = \hbar \vec{k}$\\
+Das El-Mag.-Strahlungsfeld ist aufgebaut aus unabhängigen linearen Oszillatoren mit Quantenzahl $\lambda = (\vec{k}, \sigma)$ und Energie $E_{\lambda} = E_k = \hbar \omega_k$\\
+\\
+Es ist weiterhin 
+\begin{equation}
+ \Omega(T,V, \mu = 0) = - k_B T \ln(Z_G(T, V, \mu=0)) = k_B T \, \sum_{\vec{k}, \sigma} \, \ln(1- e^{- \beta \hbar \omega_k}) = V k_B T \, \int_0^{\infty} d \omega \, \nu(\omega) \, \ln(1-e^{-\beta \hbar \omega})
+\end{equation}
+
+
+
+\subsection{Plancksche Strahlung}
+\textit{Plancksche Strahlungsverteilung: Wenn Materie der TemperaturT mit elektrom.-Strahlung im Gleichgewicht ist, geht von ihr Strahlung mit dieser Frequenzverteilung aus.}\\
+\\
+Die Plancksche Strahlungsverteilung wir mit der \textbf{Energiedichte} $u(\omega) = \frac{\hbar}{\pi^2 c^3} \, \frac{\omega^3}{\exp(\frac{\hbar \omega}{k_B T})-1}$\\
+\\
+Das Maximum ergibt sich aus $\frac{d u(\omega)}{d \omega} = 0 \,\,\, \rightarrow \,\,\, \beta \hbar \omega = 3(1- \exp(-\beta \hbar \omega)) $ \\
+\\
+dies führt zu dem \textbf{Wienschen-Verschiebungsgesetz} $ \hbar \omega_{max} = 2,82 \, k_B T$\\
+nach dem Wienschen-Verschiebungsgesetz ist demnach $\omega_{max} \propto T$.\\
+\\
+Zudem ist: 
+\begin{equation}
+ \frac{E(T,V)}{V} = \int_0^{\infty} \,d\omega \, u(\omega) 
+\end{equation}
+Energie in n Dimensionen:
+\begin{equation}
+ E = \sum_{\sigma} \, \int d^n x \, \int \frac{d^n p}{(2 \pi \hbar)^n} \, \frac{\hbar \omega}{e^{\beta \omega}-1}
+\end{equation}
+Der Strahlungsdruck ist $P = - \frac{\Omega}{V} = \frac{\pi^2}{45}\, \frac{(k_B T)^4}{(\hbar c)^3} = \frac{1}{3} \, \frac{U}{V}$\\
+\\
+\textbf{Zustandssumme $\nu$}\\
+$\nu (\omega) = \frac{1}{V} \, \sum_{\vec{k}, \sigma} \delta(\omega -\omega_k) \hspace{2cm}  \nu(E) = \int \frac{d^n p}{(2 \pi \hbar)^n} \delta (E-E_p)$
+
+
+\textbf{Sonstiges}\\
+\\
+$p = \frac{\habr \omega}{c} $\\
+
+
+
+\section{Mathematische Formeln}
+$\delta(h(x)) = \frac{\delta(x-x_0)}{h'(x_0)}$\\
+\\
+$e^(\infty) \rightarrow \infty \hspace{3cm} e^{-infty} \rightarrow 0$\\
+\\
+$\log(x\,y) = \log(x) + \log(y) \hspace{2cm} \log(\frac{x}{y}) = \log(x)-\log(y) \hspace{2cm} \log(x^z) = z \cdot \log(x)$\\
+\\
+
+\textbf{Integrale}\\
+\\
+$\int_{-\infty}^{\infty} \, dx \, e^{-ax^2} = \sqrt{\frac{1}{a} \pi}  \hspace{3cm} \int_{0}^{\infty} \, dx \, e^{-ax} = \frac{1}{a}$
+
+
+
+\end{document}

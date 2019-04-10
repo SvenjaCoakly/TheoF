@@ -1,0 +1,483 @@
+\documentclass[a4paper,11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amstext}
+\usepackage{caption, booktabs}
+\usepackage{amssymb}
+\usepackage{a4wide}
+\usepackage{verbatim}
+\usepackage{url}
+\usepackage{setspace}
+\usepackage[decimalsymbol=comma]{siunitx}
+\sisetup{separate-uncertainty}
+\usepackage{subfigure}
+\usepackage{subfig}
+\usepackage{cleveref}
+\usepackage{caption}
+\usepackage{placeins}
+\usepackage{epigraph}
+\usepackage{floatrow}
+
+\floatsetup[table]{capposition=top}
+
+\begin{document}
+\begin{titlepage}
+
+
+\title{Praktikum Moderne Physik\\Rastertunnelmikroskop}
+\author{Elina Merkel, Svenja Müller (Mi-171)}
+\date{Versuchstag: Mittwoch, 31.01.2018}
+
+\vfill
+\maketitle
+\end{titlepage}
+\newpage
+\tableofcontents
+\newpage
+\section{Einleitung}
+Thermodynamik $\rightarrow$ phänomenologische Theorie\\
+Statistische Physik $\rightarrow$ mikroskopische Herleitung, Theorie von Systemen mit $N>>1$ Teilchen \\
+N $\approx \,N_A = 6 \cdot 10^{23}$ (Avogadro-Zahl) $\rightarrow$ sehr groß $\rightarrow$ Statistische
+\section{Thermodynamik, Zusammenfassung}
+\subsection{Begriffe und Definitionen}
+
+\textbf{Thermodynamik} phänomenologisch aufgestellte, am Experiment orientierte, Theorie makroskopischer Systeme, in denen Zustandsänderungen auftreten, für die die Wärme eine wichtige Rolle spielt.\\
+\\
+\textbf{Thermodynamisches System} ein System mit makrokopisch vielen Freiheitsgraden $N>>1$.\\
+\\
+\textbf{Thermodynamischer Zustand} ist durch die Angabe von wenigen makrokopischen Zustandsgrößen vollständig bestimmt:\\
+\\
+Extensive Zustandsgrößen ($\propto N$): Teilchenzahl N, Valumen V, innere Energie U, freie Energie F, Entropie S, Magnetisierung $\vec{M}$\\
+Intensive Zustandsgrößen ($\propto N^0$): Druck P, Temperatur T, chemisches Potential $\mu$, Magnetfeld $\vec{H}$\\
+\\
+\textbf{Thermodynamisches Gleichgewicht} herrscht in einem System, wenn ein stabiler, zeitunabhängiger Zustand vorliegt.\\
+\\
+\textbf{Zustandsgleichung} Zusammenhang zwischen Zustandsgrößen im therodynamischen Gleichgewicht (z.B. f(P, V, T)) ist vom betrachteten System abhängig.\\
+\\
+\textbf{reversibel/irreversibel}: Therodynamische Prozesse können reversibel oder irreversibel sein. Reversible Prozesse verlaufen quasistatisch innerhalb der Menge der Gleichgewichtszustände: 
+\begin{itemize}
+ \item isothermer Prozess: T = const.
+ \item adiabatischer Prozess: keine Wärmeübertragenung, $\delta$Q = 0
+\end{itemize}
+\textbf{Differenziale} von Zustandsgrößen sind vollständig:\\
+z.B. für $F(T,V)$ (N=const.) gilt $ dF =  \left( \frac{\partial F}{\partial T} \right)_V dT + \left( \frac{ \partial F}{\partial V} \right)_T dV $
+mit \begin{equation}
+     \left( \frac{\partial F}{ \partial T} \right)_V = \frac{\partial F(T, V)}{ \partial V}
+    \end{equation}
+und $\oint dF = 0$
+\begin{equation}
+ \left( \frac{\partial}{\partial V} \left( \frac{\partial F}{\partial T} \right)_V \right)_T =  \left( \frac{\partial}{\partial T} \left( \frac{\partial F}{\partial V} \right)_T \right)_V
+= \frac{\partial^2 F}{\partial V \partial T} 
+\end{equation}
+
+\textbf{Arbeit} ein System kann Arbeit leisten, gegen Kräfte, die auf es wirken. $\delta W$: kein vollständiges Differential, W: keine Zustandsgröße.
+Beispiele: 
+\begin{itemize}
+ \item Arbeit bei der Änderung von Volumen: $\delta W = P\, dV$
+ \item Arbeit bei der Änderung des externen Magnetfelds $\vec{B}$:  $\delta W = \vec{M} \, d\vec{B}$
+ \item Arbeit bei der Änderung des externen elektr. Feld $\vec{E}$: $\delta W = \vec{P} \, d\vec{E}$, $\vec{P}$ elek. Polarisation der Probe
+\end{itemize}
+
+\textbf{0. Hauptsatz} Konzept der Temperatur: Es gibt eine intensive Zustandsgröße $Temperatur$, so dass Systeme, die meiteinander im Gleichgewicht sind, denselben Wert der Temperatur haben.
+$\rightarrow$ Alle Systeme, die miteinander im Gleichgewicht sind, bilden eine Äquivalenzklasse, die mit T charakterisiert werden kann.\\
+An dieser Stelle freiheit in der Definition von T, später wird mit Hilfe des Carnot-Prozesses definiert.\\
+\\
+\textbf{Wärmebad} Ein Wärmereservoir, dass auf einer konstanten Temperatur T gehalten wird.
+
+\subsection{Erster Hauptsatz}
+Energieerhaltungssatz: Wärme ist eine Form von Energie.\\
+\\ 
+Wir betrachteten eine beliebige infinitesimale Zustandsänderung mit 1. aufgenommener Wärmemenge $\delta Q$ 2. geleisteter Arbeit $\delta W$\\
+\\
+Änderung der inneren Energie: 
+\begin{equation}
+ dU = \delta Q - \delta W = T\, dS- p \, dV
+\end{equation}
+$W$ und $Q$ sind keine Zustandsgrößen, und $\delta Q$ ist kein vollständiges Integral.
+Falls bei der Zustandsänderung auch eine Änderung der Teilchenzahl $\delta N$ stattfindet ist:
+\begin{equation}
+ dU = \delta Q - \delta W + \mu dN= \delta Q - P dV + \mu dN
+\end{equation}\label{eqq:dU1}
+(\ref{eqq:dU1} gilt nur im Gleichgewicht, weil sonst $\mu $ nicht definiert ist.
+
+\subsection{Zweiter Hauptsatz, Carnot-Prozess, Entropie, Temperatur}
+Es gibt keine Thermodynamische Zustandsänderung, deren einzige Wirkung darin besteht, dass...
+\begin{itemize}
+ \item eine Wärmemenge einem Wärmerspeicher entzogen und vollständig in Arbeit umgesetzt wird (Kelvin)
+ \item eine Wärmemenge einem kälteren Wärmespeicher entzogen und an einem wärmeren Wärmespeicher abgegeben wird (Clausius)
+\end{itemize}
+$\rightarrow$ Die Entropie eines Systems nimmt nie ab, $dS \geq 0$\\
+\\
+\textbf{Der Carnot-Prozess}\\
+Isotherme Expansion, adiabatische Expansion, isotherme Kompresion,...\\
+\begin{equation}
+ \Delta U = \oint dU = 0 \, \, \rightarrow \,\, \Delta W = \oint \delta Q = Q_2 + Q_1
+\end{equation}
+$$Q_2 > 0, Q_1 < 0$$
+$$\Delta W = Q_2 - |Q_1| > 0$$
+\textbf{Wirkungsgrad einer therodynamischen Maschine:}
+\begin{equation}
+\eta = \frac{\mathrm{geleistete\, Arbeit}}{\mathrm{absorbierte\, Waerme}}= \frac{\Delta W}{Q_2}= \frac{Q_2 -|Q_1|}{Q_2}= 1 - \frac{|Q_1|}{Q_2}
+\end{equation}
+
+$0<\eta< 1, \, \eta = 1- \frac{T_<}{T_>}$ (bei idealem Gas)\\
+Bei gegebenem $T_1$ und $T_2$ ist Carnot-Maschine die effektivste Wärmekraftmaschine, d.h. $\eta$ ist maximal.\\
+\\
+\textbf{Entropie}
+Carnot-Prozess: $\frac{Q_1}{T_1}+ \frac{Q_2}{T_2}= 0$\\
+Für einen beliebigen reversiblen Kreisprozess gilt:
+\begin{equation}
+\oint \frac{\delta Q}{T}= 0                                                     
+\end{equation}
+(da sich beliebiger reversibler Kreisprozess aus unendlich vielen infinitesimalen Carnot-Prozessen aufbauen läst.)\\
+$\rightarrow$ $dS = \frac{\delta Q}{T} |_{revers.}$ \\
+$dS$ ist vollständiges Differential der Zustandsgröße Entropie $S$.\\
+\\
+\textbf{Irreversible Prozesse}\\
+Kreisprozesse mit irreversiblen Vorgängen besitzen geringeren Wirkungsgrad als der Carnot-Prozess (alle Prozesse mit realen Systemen, die in endlicher Zeit ablaufen): 
+\begin{equation}
+ \eta = 1 - \frac{|Q_1|}{Q_2} < 1-\frac{T_1}{T_2}
+\end{equation}
+$$\rightarrow \, \, \oint \frac{\delta Q}{T}$$
+\begin{equation}
+ S(B)-S(A)= \int_A^B \frac{\delta Q}{T} \Bigl|_{revers.}
+\end{equation}
+$$\oint \frac{\delta Q}{T} = \int_A^B \frac{\delta Q}{T} \Bigl|_{revers.} < 0$$
+$$\rightarrow \, \, \int_A^B \frac{\delta Q}{T} \Bigl|_{irrev}\, < \,S(A)-S(B) = \Delta S$$
+Im Allgemeinen gilt: 
+\begin{itemize}
+ \item Reversibler Prozess: $dS = \frac{\delta Q}{T}$
+ \item Irreversibler Prozess: $dS > \frac{\delta Q}{T}$
+\end{itemize}
+In einem thermisch isolierten System ($\delta Q = 0$) kann die Entropie nicht abnehmen (2.Hauptsatz). Im Gleichgewicht hat die Entropie S ihren Maximalwert.
+\subsection{Dritter Hauptsatz (Nerst-Theorem)}
+$\lim\limits_{T \to 0} S(T)= 0$\\
+\\
+Die Entropie eines Systems nimmt bei T= 0 einen universalen Wert an, der 0 gesetzt werden kann.\\
+\textbf{Konsequenz:} Der absolute Nullpunkt ist nicht mittels einer endlichen Änderung von thermodynamischen Parametern erreichbar( siehe K.Huang 1.7). Diese Unerreichbarkeit von T=0 wird manchmal als alternative des 3. Hauptsatzes verwendet.\\
+\textbf{Bemerkung:} S(T) $\underrightarrow{T \to 0} \,\,$  0 gilt unter der Vorraussetzung, dass das System einen nichtentarteten Grundzustand besitzt. Kann das System in dem Fall einen entarteten Grundzustand besitzen??
+
+\subsection{Thermodynamische Fundamentalgleichung, thermodynamische Potentiale}
+2.Hauptsatz:\\
+$\delta Q = TdS$ für revesible Prozesse\\
+1.Hauptsatz: $dU = \delta Q - PdV + \mu dN$ (irreversibel $<$)\\
+Daraus folgt die Fundamentalgleichung der Thermodynamik
+\begin{equation}
+ \rightarrow dU = TdS - PdV + \mu dN
+\end{equation}
+Dazu äquivalent ist 
+\begin{equation}
+ dS = \frac{1}{T} dU + \frac{P}{T}dV - \frac{\mu}{T}dN
+\end{equation}
+für irreversible Prozesse ist 
+\begin{equation}
+ dS > \frac{1}{T} dU + \frac{P}{T}dV - \frac{\mu}{T}dN
+\end{equation}
+mit S=S(U,V,N) und U=U(S,V,N)\\
+\\
+\textbf{Thermodynamische Ableitungen:}\\
+$$ \left( \frac{\partial S}{\partial U} \right)_{V,N} = \frac{1}{T} \,\,\,\,  \left( \frac{\partial S}{\partial V} \right)_{U,N} = \frac{P}{T} \,\,\,\,\,   \left( \frac{\partial S}{\partial N} \right)_{U,V} = \frac{-\mu}{T}$$
+\textbf{Die extensiven Größen - U,S,V,N}\\
+$\rightarrow S(\lambda U, \lambda V, \lambda N) = \lambda S(U,V,N)$
+\begin{equation}
+ \frac{d}{d \lambda} \lambda S(U,V,N) \Bigl|_{\lambda = 1} = \frac{d}{d \lambda} S(\lambda U, \lambda V, \lambda N) \Bigl|_{\lambda = 1} = \frac{\partial S}{\partial U}\,  U+ \frac{\partial S}{\partial V}\,  V +\frac{\partial S}{\partial N}\,  N
+\end{equation}
+Daraus folgt die Eulergleichung: 
+\begin{equation}
+ ST = U+PV - \mu N
+\end{equation}
+In Kombination mit $dU = TdS - PdV + \mu dN$ erhalten wir die Gibbs-Duhem-Gleichung:
+\begin{equation}
+ SdT - VdP + N d\mu
+\end{equation}
+\textbf{Therodynamische Potentiale}\\
+Die innere Energie U = U(S,V,N)\\
+reversibler Prozess: $dU = TdS - PdV + \mu dN $\\
+irreversibler Prozess: $ dU < TdS - PdV + \mu dN $\\
+Für gegebene S, V, N ist U im Gleichgewicht minimal.\\
+\\
+\textbf{Maxwell Relationen und thermodynamische Ableitungen}\\
+\begin{equation}
+ T = \left( \frac{\partial U }{\partial S}\right)_ {V,N}; \, \, \, \,\, \, \, \,  P = \left( \frac{\partial U }{\partial V}\right)_ {S,N}; \,\,\,\,\,\,\,\, P = \left( \frac{\partial U }{\partial N}\right)_ {S,V};
+\end{equation}
+Aus $\frac{\partial }{\partial x} \frac{\partial }{\partial y} U(x,y) = \frac{\partial }{\partial y} \frac{\partial }{\partial x} U(x,y)$ folgen die Maxwell-Relationen:
+\begin{equation}
+  \begin{split}
+ \left(\frac{\partial T}{\partial V} \right)_{S,N} = -\left(\frac{\partial P}{\partial S} \right)_{V,N} \\\
+ \left(\frac{\partial T}{\partial N} \right)_{S,V} = \,\, \,\, \, \left(\frac{\partial \mu}{\partial S} \right)_{V,N} \\\
+ \left(\frac{\partial P}{\partial N} \right)_{S,V} = -\left(\frac{\partial \mu}{\partial V} \right)_{S,N}
+  \end{split}
+\end{equation}
+Die innere Energie U ist das geeignete thermodynamische Potential zur Beschreibung von Prozessen mit kontrollierten S,V,N. Es ist nützlich, weitere therodynamische Potentiale mit anderen natürlichen Variablen zu definieren.\\
+\\
+\textbf{Legendre-Transformation:}\\
+$f(x, y, ...)$: $df = \xi dx +\eta dy + ...$ mit $\xi = \frac{\partial f}{\partial x}$ und $\xi = \frac{\partial f}{\partial y}$
+$$\rightarrow F(\xi,y) = f- \xi x$$
+$dF = df- \xi dx - x d\xi = -x d \xi + \eta dy+ ...$\\
+Wobei $x$ und $\xi$ konjugierte Variabeln bezüglich f sind.\\
+\\
+\textbf{(Helmholtzsche) Freie Energie}\\
+Die freie Energie ist $F(T,V,N) 0 U-TS = -PV + \mu N$ Für reversible Prozesse gilt:  $$d F = -SdT - PdV + \mu dN$$ und für irreversible Prozesse
+$$ d F < -SdT - PdV + \mu dN$$ Zweckmäßig für Prozesse mit kontralierten T, V, N sind die Maxwell-Relationen ( wie bereits für U): 
+\begin{equation}
+  \begin{split}
+ S = - \left(\frac{\partial F}{\partial T} \right)_{V,N}  \\\
+ P = - \left(\frac{\partial F}{\partial V} \right)_{T,N}  \\\
+ \mu = \left(\frac{\partial F}{\partial N} \right)_{T,V}
+  \end{split}
+\end{equation}
+Für gegebene T, V, N ist F minimal im Gleichgewicht.\\
+\\
+\textbf{Enthalpie}\\
+$$H(S,P,N) = U + PV = TS + \mu N$$
+$$ dH = TdS + VdP + \mu dN$$ und für irreversible Prozesse: $dH < TdS + VdP + \mu dN$\\
+\\
+\textbf{Gibbssche Freie Enthalpie}\\
+$$G(T, P, N ) = U+PV-TS= H-TS = \mu N$$
+$$ dG = SdT + VdP + \mu dN$$ und für irreversible Prozesse: $dH < SdT + VdP + \mu dN$\\
+\\
+\textbf{Großes Potential}\\
+$$\Omega (T,V,\mu) = U -TS-\mu N = F-\mu N = -PV$$
+mit $$d \Omega = -SdT- PdV - N\mu $$ für reversible Prozesse und $$d \Omega < -SdT- PdV - N\mu $$ bei irreversiblen Prozessen. \\
+Das große Potential beschreibt Situationen, bei denen nicht nur Wärme, sondern auch Teilchen mit einem Reservoir ausgetauscht werden. Es nimmt ebenfalls bei gegebenen entsprechenden Variabeln im Gleichgewicht den Minimalwert an. Die thermodynamische Ableitungen und Maxwell-Gleichungen sind analog zu U.
+\subsection{Thermodynamische Responsefunktionen}
+Thermodynamische Responsefunktionen beschreiben Reaktionen eines Systems auf zeitunabhängige \glqq thermodynamische Kräfte \grqq.\\
+\\
+\textbf{spezifische Wärme/ Wärmekapazität C}\\
+$\delta Q = C dT = TdS$ (für reversible Prozesse) 
+$$\rightarrow \,\, C = T \frac{dS}{dT}$$
+Hier kann zusätzlich zu $N = const.$ auch P oder V festgehalten werden:
+\begin{equation}
+ V = const. \,\, \rightarrow \,\, C_V = T \left( \frac{\partial S}{\partial T }\right)_{V,N} = \left( \frac{\partial U}{\partial T }\right)_{V,N} = - T \left( \frac{\partial^2 F}{\partial T^2} \right)_{V,N} > 0
+\end{equation}
+
+\begin{equation}
+ p= const. \,\, \rightarrow \,\, C_p = T \left( \frac{\partial S}{\partial T }\right)_{p,N} = \left( \frac{\partial H}{\partial T }\right)_{p,N} = - T \left( \frac{\partial^2 G}{\partial T^2} \right)_{p,N} > 0
+\end{equation}
+
+\textbf{Kompressibilität $\chi$}\\
+$\chi_y = - \frac{\partial V}{\partial P}_{y,N} $ mit $y = T$ oder $S$.
+$$\chi_T = - \frac{1}{V} \frac{\partial V}{\partial p}_{T,N} = \frac{1}{n} \frac{\partial n}{\partial p}_{T} = - \frac{1}{V} \frac{\partial^2 G}{\partial p^2}_{T,N} > 0$$
+\begin{equation}
+ \chi_S = - \frac{1}{V} \frac{\partial V}{\partial p}_{S,N} = - \frac{1}{V} \frac{\partial^2 H}{\partial p^2}_{S,N} > 0
+\end{equation}
+
+\textbf{Thermischer Ausdehnungskoeffizient $\alpha$}\\
+\begin{equation}
+ \alpha = \frac{1}{V} \left( \frac{\partial V}{\partial T} \right) = \frac{1}{V} \lbrack \frac{\partial}{\partial T} \left( \frac{\partial G}{\partial P} \right)_T \rbrack_P
+\end{equation}
+wobei N=const. gilt. $\alpha$ kann $<0$ oder $>0$ sein. \\
+\\
+\textbf{Magnetische Responsefunktionen}\\
+Die magnetische Suszeptibilität ist $\chi_y = \left( \frac{\partial M}{ \partial B} \right)_y $ wobei $y= T, S$\\
+Der Temperaturkoeffizient der Magnetisierung ist $\alpha_B = \left( \frac{\partial M }{\partial T} \right)_B$\\
+Zudem gilt:
+$$ C_M= T\, \left( \frac{\partial S}{\partial T} \right)_M, \,\, \,\,\,\,\, C_B= T \, \left( \frac{\partial S}{\partial T} \right)_B $$
+\\
+\textbf{Die Relationen zwischen den Responsefunktionen}\\
+Mit Hilfe von Maxwell-Relationen und von weiteren Identitäten für partielle Ableitungen kann man verschiedene Beziehungen zwischen Responsefunktionen herleiten.\\
+\\
+Nützliche Identitäten:\\
+Wir betrachten drei Variabeln (x,y,z), die eine Bedingung F(x,y,z) = 0 erfüllen. Dann ist z= z(x,y) usw., und Funktionen dieser Variablen können als Funktionen von zwei der Variablen betrachtet werden, z.B., $w = w(x,y)$ usw. D.h., aus der Menge $\lbrace x, y,z,w \rbrace$  sind nur zwei unabhängig. Es gelten die folgenden Identitäten:\\
+\begin{equation}
+ \mathrm{(I)} \left( \frac{\partial x}{ \partial y} \right)_z = \lbrack \left( \frac{\partial y}{\partial x} \right)_z \rbrack^{-1}
+\end{equation}
+\begin{equation}
+  \mathrm{(II)} \left( \frac{\partial x}{ \partial y} \right)_z \left( \frac{\partial y}{ \partial z} \right)_x \left( \frac{\partial z}{ \partial x} \right)_y = -1
+\end{equation}
+\begin{equation}
+ \mathrm{(III)} \left( \frac{\partial x}{ \partial w} \right)_z = \left( \frac{\partial x}{ \partial y} \right)_z = \left( \frac{\partial y}{ \partial w} \right)_z
+\end{equation}
+\begin{equation}
+ \mathrm{(IV)} \left( \frac{\partial x}{ \partial y} \right)_z = \left( \frac{\partial x}{ \partial y} \right)_w + \left( \frac{\partial x}{ \partial w} \right)_y \left( \frac{\partial w}{ \partial y} \right)_z
+\end{equation}
+
+\textbf{Vorlesung 19/ kurze Wiederholung}\\
+\\
+\begin{equation}
+ c_p - c_v = T\, V \frac{\alpha ^2}{\chi_T} > 0 
+\end{equation}
+wobei $\alpha $ der thermische Ausdehnungskoeffizient mit $\alpha = \frac{1}{V} \left( \frac{\partial V}{ \partial T } \right)_P$ ist. \\
+Die Kompressibilität ist $\chi_T$ mit $\chi_T =  -\frac{1}{V} \left( \frac{\partial V}{\partial P} \right)_T > 0$.\\
+\\
+Zudem gilt $$ \frac{C_P}{C_V} = \frac{\chi_T}{\chi_S}$$
+Beweis: \\
+\begin{equation}
+ \frac{1}{T} C_P = \left( \frac{\partial S}{ \partial T} \right)_P = \biggl| \frac{\partial (S,P)}{\partial (T,P)} \biggl| = \biggl| \frac{\partial (S,P)}{\partial (S,V)} \biggl| \, \biggl| \frac{\partial (S,V)}{\partial (T,V)} \biggl| \, \biggl| \frac{\partial (T,V)}{\partial (T,P)} \biggl|   =  \frac{1}{T} C_v \, \frac{\chi_T}{\chi_S}
+\end{equation}
+wobei benutzt wird, dass: 
+\begin{equation}
+ \biggl| \frac{\partial (S,P)}{\partial (S,V)} \biggl| \, \biggl| \frac{\partial (S,V)}{\partial (T,V)} \biggl| \, \biggl| \frac{\partial (T,V)}{\partial (T,P)} \biggl| = \left( \frac{\partial P}{\partial V} \right)_S  \left( \frac{\partial S}{\partial T} \right)_V  \left( \frac{\partial V}{\partial P} \right)_T
+\end{equation}
+
+Weitere Relationen in den Übungen
+\subsection{ Gleichgewichts- und Stabilitätsbedingungen}
+Zwei Teilsysteme A und B getrennt durch eine thermisch leitende, bewegliche, durchlässige Wand:\\
+\\
+\begin{equation}
+ U = U_A + U_B = const. \, \Rightarrow \, dU_A = -dU_B 
+\end{equation}
+\begin{equation}
+ V = V_A + V_B = const. \, \Rightarrow \, dV_A = -dV_B 
+\end{equation}
+\begin{equation}
+ N = N_A + N_B = const. \, \Rightarrow \, dN_A = -dN_B 
+\end{equation}
+\begin{equation}
+S = S_A + S_B
+\end{equation}
+
+\begin{equation}
+  \begin{split}
+ dS & =  \left(\frac{\partial S_A}{\partial U_A} \right)_{V_A,N_A} dU_A + \left(\frac{\partial S_B}{\partial U_B} \right)_{V_B,N_B} dU_B + \left(\frac{\partial S_A}{\partial V_A} \right)_{U_A,N_A} dV_A +... \\
+ & = \left(\frac{1}{T_A} - \frac{1}{T_B} \right) dU_A + \left( \frac{P_A}{T_A}- \frac{P_B}{T_B} \right) dV_A - \left( \frac{\mu_A}{T_A}- \frac{\mu_B}{T_B} \right) dN_A
+  \end{split}
+\end{equation}
+Im Gleichgewicht gilt, wenn S maximal ist muss
+\begin{itemize}
+ \item $dS = 0$\\
+ wobei:\\
+ $T_A = T_B$ bei Wärmeaustausch\\
+ $P_A = P_B$ bei Volumenaustausch\\
+ $\mu_A = \mu_B$ bei Teilchenzahlaustausch\\
+ Der Austausch einer extensiven Größe zwischen zwei Teilchensystemen führt dazu, dass im Gleichgewicht die konjugierte(intensive) Variable in beiden Teilsystemen angeglichen ist.
+ \item $d^2S < 0$ (Stabilität)\\
+ Bei Austausch innerer Energie und $dN_i, dV_i = 0$ ist:
+ \begin{equation}
+  d^2S = \frac{1}{2} \sum_{i= A,B} \frac{\partial^2 S_i}{\partial U_i^2} \left( dU_i \right)^2 = - \frac{1}{2} \sum_{i} \frac{1}{T_i^2} \frac{\partial T_i}{ \partial U_i} \left( dU_i \right)^2
+ \end{equation}
+ Aus $d^2S < 0$ folgt $C_V = \left( \frac{\partial U}{ \partial T} \right)_V,N > 0 $ da zudem $C_P -C_V > 0$ ist auch $C_P > 0$.
+\end{itemize}
+Konsequenz: \\
+$$T \left( \frac{\partial^2 F}{\partial T^2} \right)_{V,N} = - T \left( \frac{\partial S}{ \partial T } \right)_{V,N} = - C_V < 0$$
+$Rightarrow$ F ist eine konkave Funktion von T.\\
+Analog folgt aus $Cp > 0$, dass G eine konkave Funktion von T ist. Ähnlich folgt aus der Sabilität des Austauschs des Volumens $X_T> 0$, $X_S > 0$
+$\rightarrow$ G und H sind konkave Funktionen von P.
+Hierbei gilt: F= F(T,V,N), G = G(T,P,N) und H= H(S,P,N).
+\subsection{Funktionaldeterminante/ Jakobi-Determinante}
+\begin{equation}
+ \frac{\partial (U,V)}{\partial (x,y)} = det \left( \begin{array}{rrrr}
+ \frac{\partial U}{\partial x}\Bigl|_y & \frac{\partial U}{\partial y}\Bigl|_x \\
+ \frac{\partial V}{\partial x}\Bigl|_y & \frac{\partial V}{\partial y}\Bigl|_x \\
+\end{array}\right) 
+\end{equation}
+
+Definition der Determinante: \\
+$\frac{\partial (U,V)}{\partial (x,y) =  \frac{\partial U}{\partial x}\Bigl|_y } \,\cdot \, \frac{\partial V}{\partial y}\Bigl|_x \,-\, \frac{\partial U}{\partial y}\Bigl|_x \,\cdot \, \frac{\partial V}{\partial x}\Bigl|_y $
+\section{Wahrscheinlichkeitstheorie}
+\subsection{Begriffe, Binominal-Verteilung}
+\textbf{Stochastische Variable X} (Zufallsvariable)\\
+kann entweder disktrete Werte oder kontinuierliche Werte annehmen.\\
+\\
+\textbf{Wahrscheinlichkeitsverteilung $\rho$} (Verteilungsfunktion)\\
+Die Wahrscheinlichkeitsverteilung erfüllt für disktrete/kontin. Werte folgende Eigenschaften:\\ Die Positivität $\rho_i \geq 0$/$\rho(x) \geq 0$, die Normierung $\sum_{i} \rho_i = 1$/$ \int dx \rho(x) = 1$ .\\ Der Mittelwert ist deffiniert als $\langle x \rangle = \sum_i x_i \rho_i$/ $= \int dx x \rho (x)$,\\
+\\
+Das n-te Moment als $\langle x^n \rangle = \sum_i x_i^n \rho_i$ / $= \int dx x^n \rho (x)$,\\
+\\
+Die Standardabweichung ist $\sigma = \lbrack \langle x^2 \rangle - \langle x \rangle^2 \rbrack^{1/2}$, \\
+\\
+Die Varianz $ = \sigma^2$\\
+\\
+Die charakteristische Funktion ist $\Phi(k) = \langle \exp{ikX} \rangle = \int dx \exp{ikx} \rho(x)$ \\ mit der Umkehrfunktion $\rho(x) = \int \frac{dk}{2 \pi} \exp{-ikx} \Phi(k)$\\
+\begin{equation}
+ \Phi (k) = \sum_{n=0}^{\infty} \frac{(ik)^2}{n!} \langle X^n \rangle ;\,\,\,\,\,\,\, \langle X^n \rangle = \frac{1}{i^n}\, \frac{d^2 \, \Phi ( k)}{dk^2} \Biggl|_{k=0}
+\end{equation}
+\textbf{Kumulanten}\\
+$$\Phi (k) = \exp{S(t)}$$
+mit der Kumulantenerzeugenden Funktion $ S(t) = \sum_{n=1}^{\infty} \frac{(ik)^n}{n!} C_n(X)$ und dem Kumulanten $C_n(X) = \frac{1}{i^n} \frac{d^n S(k)}{dk^n} \Biggl|_{k=0}$\\
+Der Vergleich liefert die Relation zwischen Kumulanten und Momenten:\\
+$$C_1(X) = \langle X \rangle $$
+$$ C_2(X) = \langle X^2 \rangle - \langle X \rangle^2 = \sigma^2 $$
+$$ C_3(X) = \langle X^3 \rangle - 3 \, \langle X \rangle \, \langle X^2 \rangle + 2 \, \langle X \rangle^3; ... $$
+Für eine Gauß-Verteilung \\
+$\rho(x) = \frac{1}{ \sigma \sqrt{2 \pi} } \, \exp{-\frac{1}{2} \, \frac{(x- \langle x \rangle )^2}{\sigma^2}} $ gilt $C_n(X) = 0$ für $n \geq 3 $
+
+Betrachtung von mehreren stochastischen Variabeln, z.B. zwei: $X, \,Y$\\
+\begin{itemize}
+ \item Gemeinsame Verteilungsfunktion $\rho (x,y) \geq 0 $ \\
+ $$ \int dx dy \rho (x,y) = 1 $$
+ \item Momente $\langle X^n Y^m \rangle = \int dx dy \rho (x,y)$
+ \item reduzierte Verteilungsfunktion $$ \rho_x (x) = \int dy \rho (x,y)\, ; \,\,\,\,\, \rho_y(y) = \int dx \rho(x,y)$$
+ \item Kovarianz: $\mathrm{cov}(x,y) = \langle (x-\langle x \rangle ) (y- \langle y \rangle ) \rangle $
+ \item Korrelation $ \mathrm{cor}(x,y) = \frac{ \mathrm{cov}(x,y)}{\sigma_x \, \sigma_y}$
+ \item unabhängige Variablen: $\rho(x,y) = \rho_x(x) \, \rho_y(y)$
+\end{itemize}
+\textbf{Binomial-Verteilung}\\
+\\
+Wir betrachten N verschiedene Objekte.\\
+$ \rightarrow$ Anzahl der Permutationen: N!\\
+Wenn wir R Objekte aus N herausgreifen, ist die Zahl der Variationen (mit berücksichtigung der Anordnung): $$ \frac{N!}{(N-R)!} = N(N-1) \, \cdot \, ... \, \cdot (N-R+1)$$
+Zahl der Kombinationen (ohne Berücksichtigung der Anordnung): $$ \frac{N!}{(N-R)!\, R!} = \binom{N}{R}$$
+Wir betrachten nun ein System, in dem man eine Serie von gleichartigen und unabhängigen Versuche durchführen kann. Jeder Versuch hat genau 2 mögliche Ergebnisse:\\
+A $\rightarrow$ Wahrscheinlichkeit $p$\\
+B $\rightarrow$ Wahrscheinlichkeit $q= 1-p$\\
+Die Wahrscheinlichkeit dafür, dass N Versuche n mal das Ergebnis A und (N-n) mal das Ergebnis B liefern: 
+\begin{equation}
+ \rho_N(n) = \frac{N!}{n! (N-n)!} \, p^n \, q^{N-n}
+\end{equation}
+nennt man die Binominalverteilung.
+Der Mittelwert: $\langle n \rangle = \sum_{n=0}^N n \rho_N(n) $
+bzw. $\langle x \rangle = \int \rho_N(x) \,x $\\
+Sigma ist $ \sigma= \lbrack \langle n^2 \rangle - \langle n \rangle^2 \rbrack^{1/2} = \sqrt{pqN}  $\\
+Die Binominalverteilung geht für $N \gg 1$ in die Gaußverteilung über.
+\subsection{Gaußverteilung, Zentraler Grenzwertsatz}
+Die Gaußverteilung (Normalverteilung) ist mit 
+\begin{equation}
+ \rho_N(n) = \frac{1}{\sqrt{2 \pi} \sigma}\, \exp{- \frac{(n-\bar{n})^2}{2 \sigma^2}}
+\end{equation}
+\textbf{Gaußverteilung für mehrere Variablen}
+$$\rho(x_1, ..., x_M) = \frac{\sqrt{det A}}{(2 \pi)^{M/2}}\, \exp{-\frac{1}{2}\, \sum_{i,j=1}^M \, (x_i-a_i) A_{ij} \, (x_j-a_j)}$$
+Hierbei ist A eine MxM, symmetrische, positiv definite Matrix und es gilt:\\
+$\langle x_i \rangle = a_i, \,\,\, \langle x_i-a_i \rangle = 0, \,\,\, \langle (x_i-a_i)\, (x_j-a_j) \rangle = (A^{-1})_{i,j}$\\
+\\
+\textbf{Zentraler Grenzwertsatz}\\
+Seien $x_1, x_2,..., x_N$ - unabhängige stochastische Variabeln mit einer beliebigen, identischen für alle $x_i$ Verteilungsfunktion $\rho_x(x)$. Der Mittelwert ist $\langle x \rangle$ und die Varianz $ \sigma_x^2$.
+Betrachten wir eine stochastische Variable $S_N= x_1+x_2+...+x_N$,\\ dann ist die Verteilungsfunktion von $S_N$, $\rho_{S_N}(S_N)$ im Limes $N \rightarrow \infty$ eine Gauß-Verteilung  mit dem Mittelwert $\langle S_N \rangle = N\langle x \rangle$ und der Varianz $\sigma_{S_N}^2 = N \sigma_x^2$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Grundlagen der statistischen Physik}
+\section{Ideale Gase}
+\section{Systeme mit Wechselwirkung und Phasenübergängen}
+\section{Stochastische Prozesse und Transporttheorie}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

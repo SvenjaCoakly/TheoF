@@ -1,0 +1,424 @@
+\documentclass[a4paper,11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amstext}
+\usepackage{caption, booktabs}
+\usepackage{amssymb}
+\usepackage{a4wide}
+\usepackage{verbatim}
+\usepackage{url}
+\usepackage{setspace}
+\usepackage[decimalsymbol=comma]{siunitx}
+\sisetup{separate-uncertainty}
+\usepackage{subfigure}
+\usepackage{subfig}
+\usepackage{cleveref}
+\usepackage{caption}
+\usepackage{placeins}
+\usepackage{epigraph}
+\usepackage{floatrow}
+
+\floatsetup[table]{capposition=top}
+
+\begin{document}
+\begin{titlepage}
+
+
+\title{Grundlagen der statistischen Physik// Ideale Gase}
+
+\date{Vorlesung WS 18/19, Mirlin}
+
+\vfill
+\maketitle
+\end{titlepage}
+\newpage
+\tableofcontents
+\newpage
+\section{Grundlagen der statistischen Physik}
+\subsection{Statistisches Ensemble, fundamentales Postulat, mikrokanonisches Ensemble}
+\textbf{Klassische Physik:}\\
+Zustand von N Teilchen ist durch 3N Koordinaten und 3N Impulse beschrieben:
+\begin{equation}
+ \vec{x} = ( \vec{p}, \vec{q}) = (p_1,..., p_{3N}, q_1,...; q_{3N})
+\end{equation}
+$ \rightarrow$ 6N-dimensionaler Phasenraum\\
+\\
+Als nächstes wird die Zeitentwicklung betrachtet: Hamilton $H(\vec{p}, \vec{q})$\\
+\begin{equation}
+ \dot{p_j} = - \frac{\partial H}{\partial q_i}; \,\,\,\,\, \dot{q_i} = - \frac{\partial H}{\partial p_j}
+\end{equation}
+
+Die Phasenraumgeschwindigkeit beträgt $ \dot{\vec{x}} = (\dot{\vec{p}}, \dot{\vec{q}})$  ist eine Funktion von $\vec{x} = (\vec{p}, \vec{q})$.\\
+$\vec{x}(t1), \vec{x}(t2), ...$ ergeben Trajektorien im Phasenraum, die sich nicht kreuzen.\\
+\\
+\textbf{Energie}\\
+$H(\vec{x}) = E = const$ \\
+Die Energie ist eine Erhaltungsgröße ( $\leftrightarrow$ Zeit-Translationsinvarianz), die Bewegung erfolgt auf einer (6N-1) - dimensionalen Hyperfläche.\\
+\\
+Weitere Erhaltungsgrößen können existieren, z.B.:\\
+Gesammtimpuls $P_{tot}$ $\leftrightarrow$ Raum-Translationsinvarianz\\
+Gesammmtdrehimpuls $L_{tot}$ $\leftrightarrow$ Rotationsinvarianz\\
+Ist weder Translations-, Rotations-,...-Invarianz gegeben, ist nur N und E erhalten.\\
+\\
+\textbf{Statistisches Ensemble (Gesammtheit)}\\
+Es ist unmöglich die tatsächlichen Koordinaten eines Vielteilchensystems zu einem gegebenen Zeitpunkt $\vec{x}(t= 0)$, und damit auch die weitere Zeitentwicklung $\vec{x}(t)$ anzugeben. Die Information ist für uns aber ohne Interesse. Von Interesse ist die Information, welche Mikrozustände $\vec{x}$ überhaupt auftreten und mit welcher Wahrscheinlichkeit.\\
+Ein \textbf{Ensemble} identischer Systeme ist durch die Wahrscheinlichkeitsverteilung/-dichte $\rho (\vec{x},t)$ im Phasenraum charakterisiert.\\
+\\
+Normierung: 
+\begin{equation}
+ \int dx \rho(\vec{x},t); \,\,\,\,\,\, dx = C_N \, d^{3N}\, p \, d^{3N}\,q
+\end{equation}
+$C_N$ wird so gewählt, dass dx und $\rho$ dimensionslos sind. Es gilt in der Quantenmechanik: $C_N = \frac{1}{(2 \pi \hbar)^{3N}}$\\
+\\
+Mittelwert einer physikalischen Größe:
+\begin{equation}
+ \bar{O}(t) = \int dx O(x)\, \rho(x,t)
+\end{equation}
+
+Zeitentwicklung:\\
+Die Zeitentwicklung wird mit der Liouville-Gleichung(-Theorem) bestimmt:
+\begin{equation}
+ \frac{d}{dt} \rho(\vec{x},t) = \frac{\partial }{\partial t}\,  \rho(\vec{x},t)+\dot{\vec{x}}\, \vec{\nabla} \rho(\vec{x},t) = 0
+\end{equation}
+Die Wahrscheinlichkeit, das System in V zu finden ist $\rho_v(t)= \int_v\, d \vec{x} \rho(\vec{x},t)$\\
+\\
+\textbf{Störung einer inkompressiblen Flüssigkeit}
+\begin{equation}
+ \dot{\vec{x}} \vec{\nabla} A = \sum_{j=1}^{3N} \left( \frac{\partial H}{\partial p_j} \, \frac{\partial A}{\partial q_j} - \frac{\partial H}{\partial q_j} \, 
+ \frac{\partial A}{\partial p_j} \right)= \{H,A\} =  i \hat{L} A
+\end{equation}
+Wobei $\hat{L}$ der klassische Liouville-Operator ist, es gilt $$ \hat{L} A = -i \{ H, A \}$$
+Die Liouville Gleichung ist:\\
+$
+    i \frac{\partial \rho}{\partial t} = -i \{H , \rho \} = \hat{L} \rho
+$\\
+\\
+\textbf{Stationäre Lösung der Liouville-Gleichung}\\
+Wdh.: $ i\frac{\partial \rho}{\partial t} = - i \{H, \rho \} = \hat{L} \rho$\\
+Eine Verteilung, die nur über Energie von $\vec{x}$ abhängt, ist eine stationäre Lösung: 
+$$i \frac{\partial }{\partial t} \rho (H(x)) = 0$$
+Beweis: \\
+$ i \frac{\partial }{\partial t} \rho = -i \{H, \rho \}; \,\,\,\, \{H, \rho(H) \} = 0 $\\
+\\
+\textbf{Das Phasenraumvolumen}\\
+$\Omega(E) = \int dx \, \Theta(E-H(x))$ beschreibt ein 6N-dimensionales Volumen im Phasenraum mit $H(x) \leq  E $\\
+Die Oberfläche von $\Omega(E)$ ist $\sum(E) = \frac{d \Omega}{d E} = \int \delta (E- H(x))$\\
+$\sum (E) dE$ ist die Zahl der Zustände mit Energie $E\, \leq\, H(x)\,  \leq \, E+dE$\\
+\\
+
+\textbf{Fundamentales Postulat der klassischen statistischen Mechanik}\\
+Wir betrachten ein abgeschlossenes System mit erhaltener Energie E. \\
+Im Gleichgewicht sind alle Zustände mit $ E\, \leq \, H(x) \, \leq \, E+dE$ gleich wahrscheinlich:\\
+\begin{equation}
+  \rho^{eq} (\vec{x}) = \left\{ \begin{array}{c} \frac{1}{\sum(E)dE} \,\,\,\,\,\,\, \mathrm{wenn gilt } E < H(x) < E+dE \\ \\ 0\,\,\,\,\,\,\, \mathrm{sonst}  \end{array} \right.
+\end{equation}
+$\rightarrow $ Mikrokanonisches Ensemble\\
+\\
+Mittelwert einer physikalischen Größe: 
+\begin{equation}
+ \bar{O}_E = \frac{1}{\sum(E)dE} \, \int_{E<H<E+dE} dx O(x) = \frac{1}{\sum (E)} \int dx \delta (E-H(x)) \,O(x)
+\end{equation}
+
+\textbf{Ergodenhypothese}\\
+Nach genügend langer Zeit kommt das System jedem Punkt im Phasenraum, der mit den Erhaltungssätzen verträglich ist (hier nur E) beliebig nahe. 
+\begin{equation}
+ \bar{O}_E = \bar{O}_t
+\end{equation}
+wobei $\bar{O}_E$ den mikroskopischen Mittelwert beschreibt, \\
+und $\bar{O}_t$ den Zeitmittelwert mit $\bar{O}_t = \lim_{t \to \infty} \frac{1}{t} \, \int_0^t \, dt' \, O(\vec{x}(t))$.\\
+\subsection{Quantenstatistik}
+
+Quantenmechanisches System: Hamilton-Operator $\hat{H}$\\
+\\
+\textbf{Reine Zustände:}\\
+$| \Psi \rangle$ sind Elemente des Hilbert-Raums (linearer Vektorraum mit einem Skalarprodukt).\\
+\begin{itemize}
+ \item Zeitentwicklung: Schrödingergleichung $i \hbar \, |\Psi \rangle = \hat{H} \, | \Psi \rangle$
+ \item $\hat{H}$ Zeitunabhängig $\rightarrow \,\,\,\,\, | \Psi \rangle = \exp{(-i \hat{H}t/\hbar)} \, | \Psi (0) \rangle$
+ \item Eigenzustände: $| \Psi_n(t) \rangle = \exp{(-i E_n t/\hbar)}\, | \Psi_n \rangle ; \,\,\,\,\, \hat{H}\, | \Psi_n \rangle = E_n \, | \Psi_n \rangle $
+ \item Zustandvektoren können in eine orthogonale, vollständige, normierte Basis (z.B. Eigenzustände von $\hat{H}$) entwickelt werden.\\
+  $ | \Psi \rangle = \sum_n \, C_n |n \rangle; \,\,\,\,\, \langle n |n' \rangle =\delta_{n,n'}; \,\,\,\,\,\, \sum_n |n \rangle \, \langle n | = 1 $
+ \item Physikalische Observabeln sind beschrieben durch Operatoren:\\
+ Der Erwartungswert von $O$ im Zustand $| \Psi \rangle$ ist $\langle \hat{O} \rangle = \langle \Psi |\hat{O} |\Psi \rangle = \sum_{n,n'} \, C_n^* C_{n'} \, \langle n | \hat{O} | n' \rangle$
+\end{itemize}
+\textbf{Reine Zustände - Das Schrödinger- und Heißenberg-Bild}\\
+Oben: Schrödingerbild (Operatoren sind zeitunabhängig, Zustände entwickeln sich laut Schrödinger-Gleichung):\\
+\begin{equation}
+ \hat{O}_s = const.; \,\,\,\,\, |\Psi_s (t) \rangle = \exp{(- \frac{i}{\hbar} H t)}\, | \Psi_s (0) \rangle
+\end{equation}
+Heisenbergbild: $ | \Psi_H \rangle = | \Psi_s (0) \rangle = const.$
+$$\hat{O}_H (t) = \exp{(\frac{i}{\hbar} H t)} \, \hat{O} \, \exp{(-\frac{i}{\hbar} H t)}$$
+Die Heißenberg-bewegungsgleichung ist $ -i \hbar \frac{\partial }{\partial t} \hat{O}_H (t) = \left[ \hat{H}, \hat{O}_H(t) \right] $\\
+Zudem ist $\langle O(t) \rangle = \langle \Psi_s(t) | \hat{O}_s| \Psi_s(t) \rangle = \langle \Psi_H | \hat{O}_H(t)| \Psi_H \rangle$\\
+\\
+\textbf{Gemischte Zustände}\\
+Wir betrachten ein Ensemble identischer Quantensysteme.\\
+$W_{\alpha}$ ist die Wahrscheinlichkeit, dass System im Zustand $| \Psi_{\alpha} \rangle$ ist. Dabei ist  $| \Psi_{\alpha} \rangle$ normiert, aber nicht unbegingt orthogonal.\\
+Es gilt: $W_{\alpha} > 0; \,\,\,\,\,\, \sum_{\alpha} \, W_{\alpha} = 1 $\\
+Der Erwartungswert (die quantenmechanische und statistische Mittelung)  ist: 
+$$ \langle \hat{O} \rangle  = \sum_{\alpha}\, W_{\alpha}\, \langle \Psi_{\alpha}| O | \Psi_{\alpha} \rangle = \mathrm{Tr}(\hat{\rho} \hat{O}) $$
+Wobei $\hat{\rho}$ als \textbf{Dichtematrix} bezeichnet wird.
+\begin{equation}
+ \hat{\rho} = \sum_{\alpha} \, W_{\alpha} \, | \Psi_{\alpha} \rangle \langle \Psi_{\alpha} |
+\end{equation}
+Im Allegemeinen ist die Dichtematrix in einer vorgegebenen Basis $|n \rangle$ nicht diagonal.\\
+\\
+Eigenschaften der Dichtematrix: \\
+\begin{itemize}
+ \item $\hat{\rho}$ ist herimtisch, $ \hat{\rho}_{n,n'} = \hat{\rho}_{n,n'}^* \,\,\, \rightarrow \,\,\, \hat{\rho} = \hat{\rho}^+$
+ \item $tr(\hat{\rho}) = 1$, normiert
+ \item $\hat{\rho}$ ist positiv definit für alle $\Psi$: $\langle \Psi | \hat{\rho} | \Psi \rangle \geq 0$
+\end{itemize}
+Aus $\rho = \rho^+$ folgt, dass eine orthogonale Basoís existiert, in der $\hat{\rho}$ diagonal ist: $\rho = \sum_{\mu}\, W_{\mu} \, | \mu \rangle \, \langle \mu |$\\
+\\
+\textit{Reiner Zustand:} \\
+Als reiner Zustand wird ein Zustand bezeichnet, wenn $\hat{\rho} = \hat{\rho^2}$. 
+Zudem gilt: $ | \Psi \rangle \,\,\, \rightarrow \,\,\, \hat{\rho} = | \Psi \rangle  \, \langle  \Psi |  = P_{| \Psi \rangle}$, $P_{| \Psi \rangle}$ ist der Projektor.\\
+Die Diagonalisierung ergibt: 
+$\left( \begin{array}{rrr}
+0 & \cdots & 0 \\
+\vdots & 1 & \vdots  \\
+0 & \cdots & 0  \\
+\end{array}\right) $
+\\
+\\
+\textit{Gemischter Zustand:} \\
+Bei einem gemischten Zustand gilt $\hat{\rho} \neq \hat{\rho^2}$ \\
+\\
+Die Diagonalisierung ist: 
+$\left( \begin{array}{rrr}
+W_1 & 0 & \cdots \\
+0 & W_2 & 0  \\
+\vdots & 0 & \ddots  \\
+\end{array}\right) $\\
+
+$W_i \geq 0, \,\,\, W_i \neq 1$ \\
+\\
+\textbf{Die Zeitentwicklung:}\\
+\begin{equation}
+ i \hbar \frac{\partial }{\partial t } \, | \Psi \rangle = \hat{H} \, | \Psi \rangle \,\,\, \Rightarrow \,\, i \hbar \frac{\partial }{\partial t } \, ( | \Psi \rangle \, \langle \Psi | )  = \hat{H} \, | \Psi \rangle \, \langle \Psi | - | \Psi \rangle \,\langle \Psi | \hat{H}  
+\end{equation}
+Dies führt zu der quantenmechanischen Liouville-Gleichung/ von Neumann-Gleichung: 
+\begin{equation}
+ i \hbar \, \frac{\partial}{\partial t} \, \hat{\rho} = \left[ \hat{H}, \hat{\rho} \right]
+\end{equation}
+
+$\begin{array}{rrr}
+  - i \{ H, ... \} & \longrightarrow & \frac{1}{\hbar} \, \left[ \hat{H},...\right] \\
+  \mathrm{klassisch} & \longrightarrow & \mathrm{quantenmech.}\\                                                                                   
+ \end{array}$\\
+ \\
+ Wdh.:\\
+ $ \langle \hat{O}(t) \rangle = Tr\left[\hat{\rho}(t) O_s \right] = Tr\left[\hat{\rho}(0) O_H(t) \right]$\\
+ Schrödinger-Bild: $ -i \hbar \frac{\partial}{\partial t} \, \hat{\rho}(t) = \left[ \hat{H}, \hat{\rho}(t) \right]$\\
+ Heisenberg-Bild: $ -i \hbar \frac{\partial}{\partial t} \, \hat{O}_H(t) = \left[ \hat{H}, \hat{O}_H(t) \right]$\\
+ \\
+ \textbf{Stationäre Lösung}\\
+ $\hat{\rho} = \hat{\rho}(\hat{H}) \,\,\,\,\, \rightarrow \,\,\,\, i \hbar \, \frac{\partial }{\partial t} \, \hat{\rho} = \left[ \hat{H}, \hat{\rho} \right] = 0$
+\\
+Im Gleichgewicht ist $\frac{\partial \hat{\rho}}{ \partial t} = 0 \,\,\,\, \rightarrow \,\,\,\, \left[ \hat{H}, \hat{\rho} \right] = 0$ Daraus folgt, dass $\hat{\rho} $ diagonal in der Basis der Energieeigenzustände ist.\\
+\\
+\textbf{Fundamentales Postulat: Mikrokanonisches Ensemble}\\
+abgeschlossenes System im Gleichgewicht, keine Erhaltungsgrößen außer der Energie $E$.\\
+Aus $H | \Psi_n \rangle = E_n | \Psi_n \rangle$ folgt, dass $\hat{\rho}$ diagonal in der Basis $|\Psi_n \rangle $ mit Eigenwerten $\rho_{nn}$:
+\begin{equation}
+  \rho_{nn} = W_n = \left\{ \begin{array}{c} const. \,\,\,\,\,\,\, \mathrm{wenn} \,\, \mathrm{gilt}\,\,\,\,  E \geq E_n \geq E+dE \\ \\ 0\,\,\,\,\,\,\, \mathrm{sonst}  \end{array} \right.
+\end{equation}
+\textbf{Klassischer Grenzfall}\\
+Korrespondenz, klassischer Grenzfall des Hilbertraum $\rightarrow$ klassischer Phasenraum.\\
+\\
+\textbf{Bolzmann-Gas:}\\
+Kasten: $ L_x, \, L_y, \, L_z$, mit Ein-Teilchen-Zuständen\\
+periodische Randbedingungen $ (P_x, P_y, P_z)= \left( \frac{2 \pi \hbar}{L_x}n_x, \frac{2 \pi \hbar}{L_y} n_y, \frac{2 \pi \hbar}{L_z} n_z \right) $ \\
+\\
+1 Teilchen:\\
+$ \sum_{Zustände} = \sum_{n_x, n_y, n_z} \,\, \rightarrow \,\,\, L_x\, L_y\, L_z \, \int \, \frac{dp_x \, dp_y \, dp_z}{(2 \pi \hbar )^3}$\\
+\\
+N-Teilchen:
+\begin{equation}
+ \sum_{Zustände} \,\,\, \rightarrow \,\,\, \frac{1}{N!} \, \int \, \frac{d^{3N}p \, d^{3N}q}{(2 \pi \hbar)^{3N}}
+\end{equation}
+
+\textbf{Bemerkungen:}\\
+\begin{itemize}
+ \item $\frac{1}{N!}$ Unterscheidbarkeit von Teilchen (Gibbsches Paradoxon)
+ \item Wir haben angenommen, dass die Wahrscheinlichkeit davon, dass 2 (oder mehr) Teilchen im gleichen quanten-mech. Zustand sind, vernächlässigbar klein ist $\rightarrow$ Bolzman-Gas. \\
+ Sondt: Fermi-/Bose-Statistik
+\end{itemize}
+\subsection{Entropie}
+Mit Hilfe der Verteilungsfunktion $\rho(\vec{x}$ bzw. Dichtematrix $\hat{\rho}$ können wir Erwartungswerte von Energie, Dichte usw. bestimmen. Aber wir brauchen noch noch eine Definition der Entropie.  Das soll eine skalareFunktion der Wahrscheinlichkeitsverteilung $\rho(\vec{x})$ oder $W_{\mu}$ sein, mit folgenden Eigenschaften: \\
+\begin{itemize}
+ \item[i)] $S(W_1, W_2, ...) \geq 0$
+ \item[ii)] $ S=0$ falls $W_{\mu} = \mu, \mu_0$
+ \item[iii)] S extensiv = additiv
+ \item[iV)] S maximal im Gleichgewicht
+\end{itemize}
+Wir betrachten die Zustände $\Omega_A$ und $\Omega_B$, wobei eine Gleichverteilung der Zustände angenommen wird.\\
+S ist additiv: $ S(\Omega_A) + S(\Omega_B) = S(\Omega_A \Omega_B)$\\
+Daraus folgt $S = k \ln{\Omega}$\\
+\\
+Wdh.: 
+\begin{equation}
+W_{\mu} = \left\{ \begin{array}{c} \frac{1}{\Omega} \,\,\,\,\,\,\, \mathrm{für} \,\, \Omega \,\, \mathrm{Zuständen} \\ \\ 0\,\,\,\,\,\,\, \mathrm{sonst}  \end{array} \right.
+\end{equation}
+\begin{equation}
+ S = k_B \ln(\Omega) = - k \sum_{\mu} W_{\mu} \ln{W_{\mu}}
+\end{equation}
+für $\rho = \sum{\mu}\, W_{\mu} \, | \mu \rangle \, \langle \mu |$.\\
+\\
+Additivität:\\
+Betrachte unabhängige Teilsysteme. \\
+\begin{itemize}
+ \item A: $W_{\mu}^A$
+ \item B: $W_{\mu}^B$
+\end{itemize}
+
+
+\begin{align}
+	S_{A+B} &= -k_B \, \sum_{\mu \nu}\, W_{\mu}^A \, W_{\nu}^B \, \ln{W_{\mu}^A \, W_{\nu}^B} \\
+	 &= -k_B \, \sum_{\mu \nu}\, W_{\mu}^A \, W_{\nu}^B \, \left( \ln{W_{\mu}^A} \,+\, \ln{W_{\nu}^B} \right) \\
+	 &= S_A \, +\, S_B 
+\end{align}
+
+\begin{itemize}
+ \item $0 \, \leq \, W_{\mu} \, \leq\, 1\,\,\,\, \Rightarrow \,\,\,\,\, S \, \geq \, 0$
+ \item In einem reinen Zustand gilt: $W_{\mu} = \delta_{\mu, \mu_0} \,\,\,\, \rightarrow \,\,\,\,\, S = 0$
+ \item invarianter Ausdruck bezüglich Basistransformation: $ S = -k_B \, Tr(\hat{\rho} \ln{\hat{\rho}})  = -k_B \, \rangle \ln{\hat{\rho}} \langle$
+ \item klassisch $S = -k_B \int dx \, \rho(x)\, \ln(\rho(x)) $
+\end{itemize}
+\textbf{Mikrokanonisches Ensemble:}
+Zustände mit Energien zwischen $E$ und $E + dE$ zugänglich. Die Anzahl der Zustände ist 
+\begin{equation}
+ d \Omega (E) = \sum(E) dE, \,\,\,\, \sum(E) = \frac{d \Omega(E)}{dE}
+\end{equation}
+Fundamentales Postulat $\leftrightarrow$ Maximum von S\\
+\\
+\textbf{Entropie:} Maß für die Unbestimmtheit\\
+\\
+\begin{equation}
+ S = -k_B \, \int_{E\leq H(x) \leq E+dE}\, dx\, \rho(x) \, \ln(\rho(x))
+\end{equation}
+mit der Nebenbedingung: $ \int_{E\leq H(x) \leq E+dE}\, \rho(x) \, dx\, = 1 $\\
+
+\begin{equation}
+\rho(x) = \left\{ \begin{array}{c} \frac{1}{\sum(E)dE} \,\,\,\,\,\,\, \mathrm{für} \,\, E\, \leq \, H(x) \, \leq \,E+dE \\ \\ 0\,\,\,\,\,\,\, \mathrm{sonst}  \end{array} \right.
+\end{equation}
+
+\textbf{Mikrokanonisches Ensemble: Thermodynamik}\\
+\begin{align}
+ S(E,V,N) = k_B\, \ln d\Omega(E,V,N) \simeq k_B \ln \sum(E,V,N) \simeq k_b \ln \Omega(E,V,N)\\
+ \Omega (E) = \int dx\, \Theta (E-H(x))= \sum_n \Theta(E-E_n)\\
+ \sum(E) = \frac{d \Omega}{d E}
+\end{align}
+
+$E = U \,\,\,\, \mathrm{innere Energie}$\\
+Zustandsgleichung: $S = S(U,V,N)$\\
+\begin{equation}
+ \rightarrow \,\,\, \frac{1}{T} = \left( \frac{\partial S}{ \partial U } \right)_{V,N}; \,\,\, \frac{P}{T} = \left( \frac{\partial S}{ \partial V } \right)_{U,N}; \,\,\, \frac{\mu}{T} = \left( \frac{\partial S}{ \partial N } \right)_{U,V}
+\end{equation}
+
+\subsection{Wärmeaustausch, Temperatur, kanonisches Ensemble}
+Kanonisches Ensemble: ein System im Kontakt mit einem Wärmereservoir (= Gibbs-Ensemble)\\
+Energie E des Systems ist nicht fest (Energieaustausch), Mittelwert $ \langle E \rangle = U$\\
+\\
+\textbf{Verteilungsfunktion/Dichtematrix: 1.Herleitung}
+Maximale Entropie (Unbestimmtheit) unter Bedingung $\langle E \rangle = U$:\\
+$\hat{\rho} = \sum_n \, W_n \, | \Psi_n \rangle \langle \Psi_n |\,; \,\,\,\,\, \hat{H}|\Psi_n \rangle = E_n | \Psi_n \rangle \, ; \,\,\,\,\, \sum_n \, W_n = 1$
+
+\begin{equation}
+ W_n = \exp(-\frac{\lambda}{k_B}-1)\, \exp(-\frac{\alpha \,E_n}{k_B}) = \frac{1}{Z} \, \exp(-\beta \, E_n)
+\end{equation}
+
+Wdh.: 
+\begin{align}
+ S = -k_B \, \sum_n \, W_n \, \ln(W_n)\\
+ W_1 = Z^{-1}\, \exp{-\beta E_n}\\
+ \ln(W_n)= -\beta E_n-\ln(Z)\\
+ \Rightarrow \,\,\, S(\beta,V,N) = k_B \, \sum_n \, W_n (\beta E_n+ \ln Z) = k_B \beta U + k_B \ln Z 
+\end{align}
+
+\begin{align}
+ Z = \sum_n \, \exp(-\beta E_n)\,\,\,\,\,\,\, U = \frac{1}{Z} \sum_n E_n e{-\beta E_n}\\
+ \Rightarrow \,\,\,\,\, U = - \frac{\partial}{\partial \beta} \, \ln Z
+\end{align}
+$\beta = \frac{\alpha}{k_B} = \frac{1}{k_B\, T}$\\
+\begin{equation}
+ F(T,V,N)= U-TS= -k_B T \, \ln(Z)
+\end{equation}
+
+$$ Z = \sum_n \exp(-\beta E_n) $$
+\textbf{Kanonisches (Gibbs-) Ensemble: Thermodynamik}
+\begin{equation}
+ F(T,V,N) = - k_B T \, \ln(Z)\,; \,\,\,\,\,\, Z(T,V,N) = \sum_n \, e^{-\beta E_n}
+\end{equation}
+\begin{equation}
+ S = - \left( \frac{\partial F}{\partial T} \right)_{V,N}\,;\,\,\,\,\,\, P = - \left( \frac{\partial F}{\partial V} \right)_{T,N}\,;\,\,\,\,\,\,\, \mu = \left( \frac{\partial F}{\partial N} \right)_{T,V}
+\end{equation}
+\textbf{Kanonisches Ensemble: Energie-Schwankungen}\\
+\begin{equation}
+ W_n= \frac{1}{Z}\, e^{-\beta E_n}\,;\,\,\,\,\,\,\, Z= \sum_n  e^{-\beta E_n}
+\end{equation}
+
+\begin{equation}
+ U = \langle E \rangle = \frac{1}{Z} \, \sum_n \, E_n e^{-\beta E_n}= - \frac{1}{Z} \frac{\partial Z}{\partial \beta} =- \frac{\partial}{\partial \beta}\, \ln(Z)
+\end{equation}
+\begin{equation}
+ \frac{\partial U}{\partial \beta} = - \frac{1}{Z^2} \frac{\partial Z}{\partial \beta}\, \sum_n E_n e^{-\beta E_n}- \frac{1}{Z} \, \sum_n \, E_n^2 e^{-\beta E_n}\, = \, \langle E \rangle^2- \langle E^2 \rangle
+\end{equation}
+\begin{equation}
+ \Rightarrow \,\,\,\,\, \langle (\Delta E)^2 \rangle = \, \langle E^2 \rangle- \langle E \rangle^2 = k_B T^2 C_v
+\end{equation}
+
+Die relativen Fluktätionen der Energie gehen für $N \rightarrow \infty$ gegen 0.
+Daraus folgt, dass das kanonische und mikrokanonische Ensemble im thermodynamischen Limes $N \rightarrow \infty$ äquivalent sind.
+\subsection{Teilchenaustausch, chemisches Potential, großkanonisches Ensemble}
+Das großkanonische Ensemble beschreibt Systeme, die sowohl die Wärme als auch Teilchen mit dem Bad austauschen.
+
+$$\langle E \rangle = U\,; \,\,\,\,\,\, \langle N \rangle = N_{Therm}$$
+\textbf{Verteilungsfunktion/ Dichtematrix: 1.Herleitung}\\
+$\hat{\rho} = \sum_n W_n \, |\Psi_n \rangle \, \langle \Psi_n |\,;\,\,\,\,\, \hat{H} | \Psi_n \rangle = E_n | \Psi_n \rangle \, ;\,\,\,\,\,\, \hat{N} | \Psi_n \rangle  = N_n | \Psi_n \rangle $
+\begin{equation}
+ S = - k_B \sum_k \, W_n \ln(W_n)
+\end{equation}
+\textbf{Methode von Lagrange-Multiplikatoren}\\
+
+Nebenbedingungen: $\sum_n W_n = 1\,;\,\,\,\, \sum_n W_n E_n = U\, ; \,\,\,\,\, \sum_n W_n N_n = N $
+\begin{equation}
+ S_L = -k_B \sum_n W_n \ln(W_n)- \lambda \left( \sum_n W_n -1 \right)-\alpha \left(\sum_n W_n E_n -U \right)- \gamma \left( \sum_n W_n N_n -N \right)
+\end{equation}
+\begin{equation}
+  \begin{split}
+    \frac{\partial S_L}{\partial W_n} = 0 \,\, \Rightarrow \,\, -k_B (\ln(W_n)+1) - \lambda- \alpha E_n - \gamma N_n =0\\
+    \Rightarrow \,\, W_n = \frac{1}{Z_G} \, e^{- \beta (E_n - \mu N_n)}
+  \end{split}
+\end{equation}
+
+
+Identifikation:\\
+\begin{equation}
+ \beta = \frac{1}{k_B T}\,; \,\,\,\, \mu^{stat} = \mu^{Therm}
+\end{equation}
+
+
+
+ 
+
+
+
+
+
+
+
+
+\section{Ideale Gase}
+\section{Systeme mit Wechselwirkung und Phasenübergängen}
+\section{Stochastische Prozesse und Transporttheorie}
+
+
+
+
+\end{document}
+
